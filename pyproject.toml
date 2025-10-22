@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "weather-data-service"
+version = "0.1.0"
+description = "A weather data service that receives and queries sensor metrics"
+authors = ["Lorand Fazakas <lorand.fazakas@gmail.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.119.1"
+uvicorn = {extras = ["standard"], version = "^0.38.0"}
+pydantic = "^2.12.3"
+pydantic-settings = "^2.11.0"
+influxdb-client = "^1.49.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+pytest-asyncio = "^0.21.1"
+httpx = "^0.25.2"
+mypy = "^1.18.0"
+black = "^25.9.0"
+isort = "^7.0.0"
+flake8 = "^7.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.12"
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+
+[tool.isort]
+profile = "black"
+line_length = 120
